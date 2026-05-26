@@ -25,7 +25,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
 
     buttons = [
-        [InlineKeyboardButton("📞 Contact For Access", url="https://t.me/Johnynu@Johny_Demo_bot")]
+        [InlineKeyboardButton("📞 Contact For Access", url="https://t.me/Johnynu")]
     ]
 
     # VIDEO 1
