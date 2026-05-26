@@ -8,8 +8,6 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 TOKEN = "8899733758:AAEwDKgrFLNDwy9UcypFyTnSSj4wjnYclDY"
 ADMIN_ID = 8009821901
 
-CHANNEL_USERNAME = "@Deal24Xpress"
-CHANNEL_LINK = "https://t.me/Deal24Xpress"
 CONTACT_LINK = "https://t.me/Johnynu"
 
 DELETE_AFTER_SECONDS = 300
@@ -31,15 +29,6 @@ def load_users():
 def save_users(users):
     with open(DATA_FILE, "w") as f:
         json.dump(users, f)
-
-
-async def check_joined(user_id, context):
-    try:
-        member = await context.bot.get_chat_member(CHANNEL_USERNAME, user_id)
-        return member.status in ["member", "administrator", "creator"]
-    except Exception as e:
-        print("Join check error:", e)
-        return False
 
 
 async def delete_message(context: ContextTypes.DEFAULT_TYPE):
@@ -80,20 +69,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             data=user.id
         )
 
-    joined = await check_joined(user.id, context)
-
-    if not joined:
-        keyboard = [
-            [InlineKeyboardButton("📢 Join Channel", url=CHANNEL_LINK)],
-            [InlineKeyboardButton("✅ I Joined", callback_data="check_join")]
-        ]
-
-        await update.message.reply_text(
-            "🚫 Please join our channel first 👇",
-            reply_markup=InlineKeyboardMarkup(keyboard)
-        )
-        return
-
     keyboard = [
         [InlineKeyboardButton("🎬 Watch Demo", callback_data="demo")]
     ]
@@ -108,37 +83,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
-    if query.data == "check_join":
-        joined = await check_joined(query.from_user.id, context)
-
-        if not joined:
-            await query.message.reply_text("❌ You still have not joined the channel.")
-            return
-
-        keyboard = [
-            [InlineKeyboardButton("🎬 Watch Demo", callback_data="demo")]
-        ]
-
-        await query.message.reply_text(
-            "✅ Verified Successfully!\n\nNow watch demo videos 👇",
-            reply_markup=InlineKeyboardMarkup(keyboard)
-        )
-        return
-
     if query.data == "demo":
-        joined = await check_joined(query.from_user.id, context)
-
-        if not joined:
-            keyboard = [
-                [InlineKeyboardButton("📢 Join Channel", url=CHANNEL_LINK)],
-                [InlineKeyboardButton("✅ I Joined", callback_data="check_join")]
-            ]
-            await query.message.reply_text(
-                "Please join channel first 👇",
-                reply_markup=InlineKeyboardMarkup(keyboard)
-            )
-            return
-
         buttons = [
             [InlineKeyboardButton("📞 Contact For Access", url=CONTACT_LINK)]
         ]
