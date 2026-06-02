@@ -22,14 +22,13 @@ VIDEOS = [
     "BAACAgUAAxkBAAP5ahWqZbVZ-hfPc1AF8KL325t7TsIAArUgAAK7hmlXFOsrCqlIlRo7BA",
     "BAACAgUAAxkBAAP9ahWqZcDKlT_FBSlk__TnrIAD0FMAAsYgAAK7hmlXLX7F-peV9KQ7BA",
     "BAACAgUAAxkBAAP-ahWqZa767VyWQa_GnaTM1l8Ed-4AAskgAAK7hmlXDzwKIqMnglQ7BA",
-
     "BAACAgUAAxkBAAJ9x2oeeM_gxY6puu-a8OmkLuMqylfLAALOHwACg0_wVAEwF3o8veFMOwQ",
     "BAACAgUAAxkBAAJ9yWoeePNpbqD8RQOd0CkO4XB0JtIeAALQHwACg0_wVMyxwjdoz3V3OwQ",
-    "BAACAgUAAxkBAAJ9y2oeeSXEIYGwlXLYZPFJyfRYcfVpAALRHwACg0_wVGCQqSQj6-OfOwQ",
+    # removed old no 12
     "BAACAgUAAxkBAAJ9zWoeeSn6rPJC49RBmV1O6ijsQSs8AALSHwACg0_wVCmjiM1XAc2dOwQ",
-    "BAACAgUAAxkBAAJ9z2oeecfOS3EjOSTxWKydljZD_-pcAALTHwACg0_wVOhE_dMGqU-UOwQ",
+    # removed old no 14
     "BAACAgUAAxkBAAJ90Goeececkd8H25-qxlN1kkxuN6VPAALUHwACg0_wVCqtDSWmK9vjOwQ",
-    "BAACAgUAAxkBAAJ90Woeecf1bC1Fnzb6TlKVTUELztZJAALVHwACg0_wVHGNnmlPAj2QOwQ",
+    # removed old no 16
     "BAACAgUAAxkBAAJ90moeecfKtl8-57mCdH6ZOBtIpATCAALWHwACg0_wVPd4Z3QQtitPOwQ",
     "BAACAgUAAxkBAAJ902oeecciaUV-6ETzoQkaqpcZQFG5AALYHwACg0_wVAABQ_qxRymMODsE",
     "BAACAgUAAxkBAAJ91GoeecfLswb-E8tUmhVsiaEbVZfzAALZHwACg0_wVEwChZm9fP7KOwQ",
@@ -68,7 +67,8 @@ async def followup(context: ContextTypes.DEFAULT_TYPE):
     try:
         await context.bot.send_message(
             chat_id=user_id,
-            text=f"Hi 👋\n\nDid you watch the demo videos?\n\nContact here:\n{CONTACT_LINK}"
+            text=f"Hi 👋\n\nDid you watch the demo videos?\n\n📞 Contact here:\n{CONTACT_LINK}",
+            protect_content=True
         )
     except Exception as e:
         print("Followup error:", e)
@@ -93,13 +93,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             data=user.id
         )
 
-    keyboard = [
-        [InlineKeyboardButton("🎬 Watch Demo", callback_data="demo")]
-    ]
+    keyboard = [[InlineKeyboardButton("🎬 Watch Demo", callback_data="demo")]]
 
     await update.message.reply_text(
-        "Welcome Here 👋\n\nClick below for demo videos and photo 👇",
-        reply_markup=InlineKeyboardMarkup(keyboard)
+        "🔥 Welcome Here 🔥\n\nClick below and watch demo content 👇",
+        reply_markup=InlineKeyboardMarkup(keyboard),
+        protect_content=True
     )
 
 
@@ -108,15 +107,26 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
 
     if query.data == "demo":
-        buttons = [
-            [InlineKeyboardButton("📞 Contact For Access", url=CONTACT_LINK)]
-        ]
+        await query.message.reply_text(
+            "⚠️ THIS IS ONLY DEMO ⚠️\n\n"
+            "We know there is not everything here what you want 👀\n\n"
+            "But in paid group there is EVERYTHING 🥶🔥\n\n"
+            "💎 Full access\n"
+            "💎 Rare content\n"
+            "💎 Daily updates\n"
+            "💎 More private videos\n\n"
+            f"📞 Contact Here:\n{CONTACT_LINK}",
+            protect_content=True
+        )
+
+        buttons = [[InlineKeyboardButton("📞 Contact For Access", url=CONTACT_LINK)]]
 
         for index, photo in enumerate(PHOTOS, start=1):
             msg = await query.message.reply_photo(
                 photo=photo,
-                caption=f"Demo Photo {index}\n\n⏳ Auto delete in 5 minutes.",
-                reply_markup=InlineKeyboardMarkup(buttons)
+                caption=f"📸 Demo Photo {index}\n\n⏳ Auto delete in 5 minutes.",
+                reply_markup=InlineKeyboardMarkup(buttons),
+                protect_content=True
             )
 
             context.job_queue.run_once(
@@ -128,8 +138,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         for index, video in enumerate(VIDEOS, start=1):
             msg = await query.message.reply_video(
                 video=video,
-                caption=f"Demo Video {index}\n\n⏳ Auto delete in 5 minutes.",
-                reply_markup=InlineKeyboardMarkup(buttons)
+                caption=f"🎬 Demo Video {index}\n\n⏳ Auto delete in 5 minutes.",
+                reply_markup=InlineKeyboardMarkup(buttons),
+                protect_content=True
             )
 
             context.job_queue.run_once(
@@ -148,9 +159,7 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def myid(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        f"Your Telegram ID:\n\n{update.message.from_user.id}"
-    )
+    await update.message.reply_text(f"🆔 Your Telegram ID:\n\n{update.message.from_user.id}")
 
 
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -169,7 +178,11 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     for user_id in users.keys():
         try:
-            await context.bot.send_message(chat_id=int(user_id), text=message)
+            await context.bot.send_message(
+                chat_id=int(user_id),
+                text=message,
+                protect_content=True
+            )
             success += 1
         except:
             failed += 1
@@ -187,22 +200,5 @@ app.add_handler(CommandHandler("myid", myid))
 app.add_handler(CommandHandler("broadcast", broadcast))
 app.add_handler(CallbackQueryHandler(button))
 
-if query.data == "demo":
-
-    await query.message.reply_text(
-        "⚠️ THIS IS ONLY DEMO...\n\n"
-        "We know there is not everything here what you want 👀\n\n"
-        "But in paid group there is EVERYTHING 🥶🔥\n\n"
-        f"📞 Contact Here:\n{CONTACT_LINK}"
-    )
-
-    buttons = [
-        [InlineKeyboardButton("📞 Contact For Access", url=CONTACT_LINK)]
-    ]
-    await bot.send_video(
-    chat_id=user_id,
-    video="file.mp4",
-    protect_content=True
-    )
-print("Bot Running...")
+print("🔥 Bot Running...")
 app.run_polling()
