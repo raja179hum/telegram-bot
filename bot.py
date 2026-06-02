@@ -187,5 +187,22 @@ app.add_handler(CommandHandler("myid", myid))
 app.add_handler(CommandHandler("broadcast", broadcast))
 app.add_handler(CallbackQueryHandler(button))
 
+if query.data == "demo":
+
+    await query.message.reply_text(
+        "⚠️ THIS IS ONLY DEMO...\n\n"
+        "We know there is not everything here what you want 👀\n\n"
+        "But in paid group there is EVERYTHING 🥶🔥\n\n"
+        f"📞 Contact Here:\n{CONTACT_LINK}"
+    )
+
+    buttons = [
+        [InlineKeyboardButton("📞 Contact For Access", url=CONTACT_LINK)]
+    ]
+    await bot.send_video(
+    chat_id=user_id,
+    video="file.mp4",
+    protect_content=True
+    )
 print("Bot Running...")
 app.run_polling()
