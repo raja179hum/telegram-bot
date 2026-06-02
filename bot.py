@@ -10,18 +10,37 @@ ADMIN_ID = 8009821901
 
 CONTACT_LINK = "https://t.me/Johnynu"
 DELETE_AFTER_SECONDS = 300
-
-VIDEO1 = "BAACAgUAAxkBAAMFahWDA2mcxJTDM4kyIc-qx3-TkBgAAq4dAAIcXrBUU1zo-1hZfPg7BA"
-VIDEO2 = "BAACAgUAAxkBAAMMahWEWc3CDeiCiyEivNdHuq0WnXcAAo8dAAIcXrBUDBNgSehFDY07BA"
-VIDEO3 = "BAACAgUAAxkBAAMOahWFGGr4ZJnxxvMktPSauLdOri4AAtoeAAKWBRlU5ig23MTnFwABOwQ"
-VIDEO4 = "BAACAgUAAxkBAAP6ahWqZZooTmlq5MR4rgRzDaBLkyMAAr4gAAK7hmlX5aZahjdEl1Y7BA"
-VIDEO5 = "BAACAgUAAxkBAAP7ahWqZeU9sPqrX4BrqWjh-xicrxcAAsMgAAK7hmlXWuW2UpJbV9U7BA"
-VIDEO6 = "BAACAgUAAxkBAAP8ahWqZT2u8y9nBXHp3RpbVta6CJUAAsQgAAK7hmlXxkK8hZOmFwk7BA"
-VIDEO7 = "BAACAgUAAxkBAAP5ahWqZbVZ-hfPc1AF8KL325t7TsIAArUgAAK7hmlXFOsrCqlIlRo7BA"
-VIDEO8 = "BAACAgUAAxkBAAP9ahWqZcDKlT_FBSlk__TnrIAD0FMAAsYgAAK7hmlXLX7F-peV9KQ7BA"
-VIDEO9 = "BAACAgUAAxkBAAP-ahWqZa767VyWQa_GnaTM1l8Ed-4AAskgAAK7hmlXDzwKIqMnglQ7BA"
-
 DATA_FILE = "users.json"
+
+VIDEOS = [
+    "BAACAgUAAxkBAAMFahWDA2mcxJTDM4kyIc-qx3-TkBgAAq4dAAIcXrBUU1zo-1hZfPg7BA",
+    "BAACAgUAAxkBAAMMahWEWc3CDeiCiyEivNdHuq0WnXcAAo8dAAIcXrBUDBNgSehFDY07BA",
+    "BAACAgUAAxkBAAMOahWFGGr4ZJnxxvMktPSauLdOri4AAtoeAAKWBRlU5ig23MTnFwABOwQ",
+    "BAACAgUAAxkBAAP6ahWqZZooTmlq5MR4rgRzDaBLkyMAAr4gAAK7hmlX5aZahjdEl1Y7BA",
+    "BAACAgUAAxkBAAP7ahWqZeU9sPqrX4BrqWjh-xicrxcAAsMgAAK7hmlXWuW2UpJbV9U7BA",
+    "BAACAgUAAxkBAAP8ahWqZT2u8y9nBXHp3RpbVta6CJUAAsQgAAK7hmlXxkK8hZOmFwk7BA",
+    "BAACAgUAAxkBAAP5ahWqZbVZ-hfPc1AF8KL325t7TsIAArUgAAK7hmlXFOsrCqlIlRo7BA",
+    "BAACAgUAAxkBAAP9ahWqZcDKlT_FBSlk__TnrIAD0FMAAsYgAAK7hmlXLX7F-peV9KQ7BA",
+    "BAACAgUAAxkBAAP-ahWqZa767VyWQa_GnaTM1l8Ed-4AAskgAAK7hmlXDzwKIqMnglQ7BA",
+
+    "BAACAgUAAxkBAAJ9x2oeeM_gxY6puu-a8OmkLuMqylfLAALOHwACg0_wVAEwF3o8veFMOwQ",
+    "BAACAgUAAxkBAAJ9yWoeePNpbqD8RQOd0CkO4XB0JtIeAALQHwACg0_wVMyxwjdoz3V3OwQ",
+    "BAACAgUAAxkBAAJ9y2oeeSXEIYGwlXLYZPFJyfRYcfVpAALRHwACg0_wVGCQqSQj6-OfOwQ",
+    "BAACAgUAAxkBAAJ9zWoeeSn6rPJC49RBmV1O6ijsQSs8AALSHwACg0_wVCmjiM1XAc2dOwQ",
+    "BAACAgUAAxkBAAJ9z2oeecfOS3EjOSTxWKydljZD_-pcAALTHwACg0_wVOhE_dMGqU-UOwQ",
+    "BAACAgUAAxkBAAJ90Goeececkd8H25-qxlN1kkxuN6VPAALUHwACg0_wVCqtDSWmK9vjOwQ",
+    "BAACAgUAAxkBAAJ90Woeecf1bC1Fnzb6TlKVTUELztZJAALVHwACg0_wVHGNnmlPAj2QOwQ",
+    "BAACAgUAAxkBAAJ90moeecfKtl8-57mCdH6ZOBtIpATCAALWHwACg0_wVPd4Z3QQtitPOwQ",
+    "BAACAgUAAxkBAAJ902oeecciaUV-6ETzoQkaqpcZQFG5AALYHwACg0_wVAABQ_qxRymMODsE",
+    "BAACAgUAAxkBAAJ91GoeecfLswb-E8tUmhVsiaEbVZfzAALZHwACg0_wVEwChZm9fP7KOwQ",
+    "BAACAgUAAxkBAAJ91WoeecdO_ILPp4QUAqy0CVrItBCtAALaHwACg0_wVOt3fnY-PGKlOwQ",
+    "BAACAgUAAxkBAAJ91moeeccXG5XwfoRafEALkWhLJl3UAALbHwACg0_wVLghTr2AxCAAATsE",
+    "BAACAgUAAxkBAAJ932oeedpvWmtkwHpTCsUeYKWBpEOUAALcHwACg0_wVNHg67NqL_k4OwQ",
+]
+
+PHOTOS = [
+    "AgACAgUAAxkBAAJ942oeefqqGoy6FCihwUldqYAsb7yQAAKDD2sbIzjwVB5gUoBs18i1AQADAgADeQADOwQ"
+]
 
 
 def load_users():
@@ -79,7 +98,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
 
     await update.message.reply_text(
-        "Welcome Here 👋\n\nClick below for demo videos 👇",
+        "Welcome Here 👋\n\nClick below for demo videos and photo 👇",
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
@@ -93,9 +112,20 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("📞 Contact For Access", url=CONTACT_LINK)]
         ]
 
-        videos = [VIDEO1, VIDEO2, VIDEO3, VIDEO4, VIDEO5, VIDEO6, VIDEO7, VIDEO8, VIDEO9]
+        for index, photo in enumerate(PHOTOS, start=1):
+            msg = await query.message.reply_photo(
+                photo=photo,
+                caption=f"Demo Photo {index}\n\n⏳ Auto delete in 5 minutes.",
+                reply_markup=InlineKeyboardMarkup(buttons)
+            )
 
-        for index, video in enumerate(videos, start=1):
+            context.job_queue.run_once(
+                delete_message,
+                when=DELETE_AFTER_SECONDS,
+                data=(msg.chat_id, msg.message_id)
+            )
+
+        for index, video in enumerate(VIDEOS, start=1):
             msg = await query.message.reply_video(
                 video=video,
                 caption=f"Demo Video {index}\n\n⏳ Auto delete in 5 minutes.",
@@ -118,7 +148,9 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def myid(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(f"Your Telegram ID:\n\n{update.message.from_user.id}")
+    await update.message.reply_text(
+        f"Your Telegram ID:\n\n{update.message.from_user.id}"
+    )
 
 
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
